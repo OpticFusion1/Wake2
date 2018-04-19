@@ -5,19 +5,19 @@ public class Prompt {
     
     public boolean running = true;
     Scanner in = new Scanner(System.in);
-    
+    public Object currentRoom;
 
     public void run() {
         
         Map map = new Map();
-        map.createRoom();
+        //map.createRoom();
         loop();
     }//run()
 
     public void loop() {
         while (running == true) {
            
-            //print current room name and short desc\\ System.out.print(currentRoom.roomName);
+            System.out.print(map.roomList[Map.currentRoom].returnName());
             String usrInput = in.nextLine();
             usrInput = usrInput.toLowerCase();
 

@@ -17,8 +17,16 @@ public class Room {
 //    public void room(String name, String shortDesc, String longDesc, ArrayList exits, ArrayList items) {
 //    }//room()
 
-//    public String returnName() {
-        //return this.name;
-//    }//returnName
+    public String returnName() {
+        return this.roomName;
+    }//returnName
 
+    public String returnShortDesc() {
+        return this.roomShortDesc;
+    }//returnShortDesc()
+
+    public String returnLongDesc() {
+        return roomLongDesc;
+    }//returnLongDesc
+    
 }//Room

@@ -7,6 +7,7 @@ public class Wake2 {
     public static void main(String[] args) {
         //Wake2 wake2 = new Wake2();
         System.out.println("Wake");
+       
         
         //run prompt
         Prompt prompt = new Prompt();
