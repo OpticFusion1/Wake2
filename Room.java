@@ -18,11 +18,11 @@ public class Room {
 //    }//room()
 
     public String returnName() {
-        return this.roomName;
+        return roomName;
     }//returnName
 
     public String returnShortDesc() {
-        return this.roomShortDesc;
+        return roomShortDesc;
     }//returnShortDesc()
 
     public String returnLongDesc() {

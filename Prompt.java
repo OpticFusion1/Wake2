@@ -5,11 +5,12 @@ public class Prompt {
     
     public boolean running = true;
     Scanner in = new Scanner(System.in);
-    public Object currentRoom;
+    public Map map = new Map();
+    
 
     public void run() {
         
-        Map map = new Map();
+        //Map map = new Map();
         //map.createRoom();
         loop();
     }//run()
@@ -17,7 +18,7 @@ public class Prompt {
     public void loop() {
         while (running == true) {
            
-            System.out.print(map.roomList[Map.currentRoom].returnName());
+            System.out.print(map.getRoom().returnName() + ": "); //return roomname
             String usrInput = in.nextLine();
             usrInput = usrInput.toLowerCase();
 
@@ -27,6 +28,17 @@ public class Prompt {
                 break;
                 case "m": System.out.println("You pressed m.");
                 break;
+                //look
+                case "l": System.out.println(map.getRoom().returnLongDesc());
+                break;
+                case "look": System.out.println(map.getRoom().returnLongDesc());
+                break;
+                //navigation
+                case "1": map.setRoom(map.one);
+                break;
+                case "2": map.setRoom(map.two);
+                break;
+                //default
                 default: System.out.println("I'm not sure what you mean.");
                 break;
             }//switch(usrInput)
