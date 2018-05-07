@@ -34,9 +34,13 @@ public class Prompt {
                 case "look": System.out.println(map.getRoom().returnLongDesc());
                 break;
                 //navigation
-                case "1": map.setRoom(map.one);
-                break;
-                case "2": map.setRoom(map.two);
+                case "n": if (map.getRoom().returnNorth().equals(null)) {
+                    //map.setRoom(map.getRoom().returnNorth());
+                    System.out.println("You can't go that way");
+                } else {
+                    map.setRoom(map.getRoom().returnNorth()); //needs to be updated!!!!!!!!!!
+                    //System.out.println("You can't go that way");
+            }
                 break;
                 //default
                 default: System.out.println("I'm not sure what you mean.");
