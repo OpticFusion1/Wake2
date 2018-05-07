@@ -1,73 +1,47 @@
-package Wake2;
-public class Room {
+import java.util.ArrayList;
 
-    public String roomName;
-    public String roomShortDesc;
-    public String roomLongDesc;
-    //public ArrayList exits = new ArrayList();
-    public Room north;
-    public Room south;
-    public Room east;
-    public Room west;
-    //public ArrayList items = new ArrayList();
-    
-    public Room(String name, String shortDesc, String longDesc, Room goNorth, Room goSouth, Room goEast, Room goWest) {
-        roomName = name;
-        roomShortDesc = shortDesc;
-        roomLongDesc = longDesc;
-        north = goNorth;
-        south = goSouth;
-        east = goEast;
-        west = goWest;
-    }//room()
+public class Room{
 
-    //remove this
-    public Room(String name, String shortDesc, String longDesc) {
-        roomName = name;
-        roomShortDesc = shortDesc;
-        roomLongDesc = longDesc;
+  //parameters here;
+  public String name;
+  public String shortDesc;
+  public String longDesc;
 
-    }//room()
+  public ArrayList<Room> exits = new ArrayList<Room>(); //n,s,e,w
+  public ArrayList<Item> items = new ArrayList<Item>();
 
-//    public void room(String name, String shortDesc, String longDesc, ArrayList exits, ArrayList items) {
-//    }//room()
+  //getters/setters
 
-    public String returnName() {
-        return roomName;
-    }//returnName
+  String getName() {
+    return name;
+  }//getName()
 
-    public String returnShortDesc() {
-        return roomShortDesc;
-    }//returnShortDesc()
+  String getShortDesc() {
+    return shortDesc;
+  }//getShortDesc
 
-    public String returnLongDesc() {
-        return roomLongDesc;
-    }//returnLongDesc
+  String getLongDesc() {
+    return longDesc;
+  }//getLongDesc
+ 
+  public void setName(String x) {
+    name = x;
+  }//setName()
 
-    public Room returnNorth() {
-        return north;
-    }
-    public Room returnSouth() {
-        return south;
-    }
-    public Room returnEast() {
-        return east;
-    }
-    public Room returnWest() {
-        return west;
-    }
+  public void setShortDesc(String x) {
+    shortDesc = x;
+  }//setShortDesc
 
-    //setters for map()
-    public void setNorth(Room dest) {
-        north = dest;
-    }
-    public void setSouth(Room dest) {
-        south = dest;
-    }
-    public void setEast(Room dest) {
-        east = dest;
-    }
-    public void setWest(Room dest) {
-        west = dest;
-    }
+  public void setLongDesc(String x) {
+    longDesc = x;
+  }//setLongDesc
+
+  public void addExit(int x, Room y) {
+    exits.add(x, y);
+  }//addExit
+
+  public void addItem(Item x){
+    items.add(x);
+  }
+
 }//Room

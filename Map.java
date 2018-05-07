@@ -1,36 +1,82 @@
-package Wake2;
-public class Map {
+import java.util.ArrayList;
 
-        Room one = new Room("Dark room", 
-                            "You are in a small, dimly lit room.", 
-                            "You are in a small concrete room with very little illumination.");
-        Room two = new Room("Hallway", 
-                            "You are in a dimly lit hallway.", 
-                            "You are in a dim hallway, the only source of illumination coming from the southern door");
-        Room three = new Room("4-way room", 
-                            "You are in a large room lit by torches", 
-                            "You are in a large stone room, well illuminated by torches.  Each of the four walls has a door.");
+public class Map{
 
-        Room[] roomList = {one, two, three};
-        private Room currentRoom = one;
+  //create rooms here;
+  Room blank = new Room();
+  Room one = new Room();
+  Room two = new Room();
+  Room three = new Room();
+  Room four = new Room();
+  Room five = new Room();
 
-        public Map() {
+  //Room[] roomArray = {one, two, three};
+  //ArrayList roomList = new ArrayList(roomArray); 
+  Item coin = new Item("a coin", "a small silver coin.");
+  Item pen = new Item("a pen", "a tiny silver pen with cap.");
+  Item paper = new Item("a sheet of paper", "a white sheet of paper with writing on it.");
+  private Room currentRoom = one;
 
-            //move map data here? (not yet)
-            one.setSouth(two);
-            two.setNorth(one);
-            two.setSouth(three);
-            three.setNorth(two);
+  public Map() {
+    //assign all room parameters here;
+    one.setName("Dark room");
+    one.setShortDesc("You are in a small, dimly lit room.");
+    one.setLongDesc("You are in a small concrete room with very little illumination.");
+    one.addExit(0, blank);  //this is to prevent an array out of bounds error
+    one.addExit(1, two);
+    one.addExit(2, blank);
+    one.addExit(3, blank);
+    //items;
+    one.addItem(coin);
 
-    }//map
+    two.setName("Hallway");
+    two.setShortDesc("You are in a dimly lit hallway.");
+    two.setLongDesc("You are in a dim hallway, th only source of illumination coming from the southern door");
+    two.addExit(0, one);
+    two.addExit(1, three);
+    two.addExit(2, blank);
+    two.addExit(3, blank);
+    //items
 
-    public Room getRoom() {
-        return currentRoom;
-    }//getRoom()
+    three.setName("Four-way room");
+    three.setShortDesc("You are in a large room lit by torches.");
+    three.setLongDesc("You are in a large stone room, well illuminated by torchs.  Each of the four walls has a door.");
+    three.addExit(0, two);
+    three.addExit(1, blank);
+    three.addExit(2, four);
+    three.addExit(3, five);
+    //items
 
-    public void setRoom(Room room) {
-        this.currentRoom = room;
-        System.out.println(currentRoom.returnShortDesc());
-    }
+    four.setName("Green room");
+    four.setShortDesc("You are in a small, green room.");
+    four.setLongDesc("You are in a small green room. It is quite green.");
+    four.addExit(0, blank); 
+    four.addExit(1, blank);
+    four.addExit(2, blank);
+    four.addExit(3, three);
+    //items;
+    four.addItem(pen);
+    four.addItem(paper);
 
-} //Map
+    five.setName("Blue room");
+    five.setShortDesc("You are in a small, blue room.");
+    five.setLongDesc("This is most definitely the bluest room that you have ever seen.");
+    five.addExit(0, blank);  
+    five.addExit(1, blank);
+    five.addExit(2, three);
+    five.addExit(3, blank);
+    //items;
+
+  }//Map()
+
+  public Room getCurrentRoom() {
+    return currentRoom;
+  }//getRoom
+
+  public void setCurrentRoom(Room x) {
+    currentRoom = x;
+  }//setRoom
+
+
+
+}//Map        
