@@ -17,17 +17,11 @@ public class Inventory{
     inv.remove(x);
   }
 
-  public String listItems(){
-    String i;
-    i = "0"; //replace this
-    //i = inv;
-    return i;
-
-
-//    int x = inv.size();
-//    for (int y = 0; y < x + 1; y++){
-//      System.out.println(inv(y).getName());
-//    }//for y < x+1 
+  public void listItems(){
+    int x = inv.size();
+    for (int y = 0; y < x; y++){
+      System.out.println(inv.get(y).getName());
+    }//for y < x+1 
     
   }
 
