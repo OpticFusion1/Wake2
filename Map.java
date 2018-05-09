@@ -35,7 +35,7 @@ public class Map{
 
     two.setName("Hallway");
     two.setShortDesc("You are in a dimly lit hallway.");
-    two.setLongDesc("You are in a dim hallway, th only source of illumination coming from the southern door");
+    two.setLongDesc("You are in a dim hallway, the only source of illumination coming from the southern door");
     two.addExit(0, one);
     two.addExit(1, three);
     two.addExit(2, blank);

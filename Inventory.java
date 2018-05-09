@@ -20,7 +20,7 @@ public class Inventory{
   public void listItems(){
     int x = inv.size();
     for (int y = 0; y < x; y++){
-      System.out.println(inv.get(y).getName());
+      System.out.println("You are carrying: \n" + inv.get(y).getName());
     }//for y < x+1 
     
   }

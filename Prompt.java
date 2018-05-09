@@ -8,9 +8,9 @@ public class Prompt{
 
   public void loop(){
     System.out.println(map.getCurrentRoom().getShortDesc());
+    listItems();
+    listExits();
     while (running == true){
-      listExits();
-      listItems();
       //prompt
       System.out.print("[" + map.getCurrentRoom().getName() + "]: ");
       String usrInput = in.nextLine();
@@ -26,9 +26,10 @@ public class Prompt{
           break;
 
         //look
-        case "l": System.out.println(map.getCurrentRoom().getLongDesc());
-          break;
+        case "l": 
         case "look": System.out.println(map.getCurrentRoom().getLongDesc());
+          listItems();
+          listExits();
           break;
 
         //navigation (north, south, east, west)
@@ -38,6 +39,8 @@ public class Prompt{
            } else {
                map.setCurrentRoom(map.getCurrentRoom().exits.get(0));
                System.out.println(map.getCurrentRoom().getShortDesc());
+               listItems();
+               listExits();
            } 
           break;
         case "south":
@@ -46,6 +49,8 @@ public class Prompt{
            } else {
                map.setCurrentRoom(map.getCurrentRoom().exits.get(1));
                System.out.println(map.getCurrentRoom().getShortDesc());
+               listItems();
+               listExits();
            }
           break;
         case "east":
@@ -54,6 +59,8 @@ public class Prompt{
            } else {
                map.setCurrentRoom(map.getCurrentRoom().exits.get(2));
                System.out.println(map.getCurrentRoom().getShortDesc());
+               listItems();
+               listExits();
            }
           break;
         case "west":
@@ -62,9 +69,27 @@ public class Prompt{
            } else {
                map.setCurrentRoom(map.getCurrentRoom().exits.get(3));
                System.out.println(map.getCurrentRoom().getShortDesc());
+               listItems();
+               listExits();
            }
           break;
-        case "get coin": 
+        //utility commands
+        case "get coin": if (map.getCurrentRoom().items.contains(map.coin)){
+          map.getCurrentRoom().items.remove(map.coin);
+          inventory.addItem(map.coin);
+          System.out.println("You pick up the coin.");
+          } else {
+            System.out.println("I don't see that here"); 
+          }
+          break;
+        case "inventory":
+        case "inv": 
+        case "i": if (inventory.inv.size() > 0){
+          inventory.listItems();
+          } else {
+            System.out.println("You are not carrying anything.");
+          }
+          break;
 
         default: System.out.println("I'm not sure what you mean.");
           break;
