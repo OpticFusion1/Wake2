@@ -1,0 +1,48 @@
+String usrInput = in.nextLine();
+usrInput = usrInput.toLowerCase();
+
+tokenize, and save everything that is not an article into an array inputArray[].
+
+int arrayLength = inputArray.size();
+if (arrayLength = 1){
+  use original switch
+}else if (arrayLength = 2){
+  use the following switch; (maybe call this as a method?)
+
+switch (inputArray[0]){
+  case "take":
+  case "get": if (currentRoom itemList contains inputArray[1]){
+    remove item from currentRoom
+    add item to inventory
+    } else {
+      print("I don't see that here.")
+    break;
+  case "drop": if (inventory contains inputArray[1]{
+    remove item from inventory
+    } else {
+    print("You don't have one of those.")
+    break;
+  case "look": if (inventory contains inputArray[1]{
+      print inventory.item.getDesc()
+    } else if (currentRoom contains inputArray[1]{
+      print currentRoom.item.getDesc()
+    } else {
+      print("I don't see that here.")
+    break;
+
+
+
+
+
+
+   if (inputArray[1].getName().equals(map.getCurrentRoom().checkContents());
+
+Room{
+  checkContents(){
+    int size = items.size();
+    int x = 0;
+    while (size > 0){
+      return items[x]; //?????????? naw
+      x++;
+      size--;
+
