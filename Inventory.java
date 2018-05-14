@@ -17,10 +17,15 @@ public class Inventory{
     inv.remove(x);
   }
 
+  public Item getItem(int x){
+    return inv.get(x);
+  }
+
   public void listItems(){
     int x = inv.size();
+    System.out.println("You are carrying:");
     for (int y = 0; y < x; y++){
-      System.out.println("You are carrying: \n" + inv.get(y).getName());
+      System.out.println(inv.get(y).getName());
     }//for y < x+1 
     
   }

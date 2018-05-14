@@ -44,4 +44,8 @@ public class Room{
     items.add(x);
   }
 
+  public void removeItem(int x){
+    items.remove(x);
+  }
+
 }//Room

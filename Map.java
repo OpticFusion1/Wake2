@@ -14,10 +14,11 @@ public class Map{
   //ArrayList roomList = new ArrayList(roomArray); 
 
 //Item itemName = new Item("a nameofitem", "a sentancedescribingtheitem.", trueIfItCanBeTaken);
-  Item coin = new Item("a coin", "a small silver coin.", true);
-  Item pen = new Item("a pen", "a tiny silver pen with cap.", true);
-  Item paper = new Item("a sheet of paper", "a white sheet of paper with writing on it.", true);
-  Item fountain = new Item("a fountain", "a large stone fountain, water trickling down its sides.", false);
+  Item coin = new Item("coin", "a small silver coin.", true);
+  Item pen = new Item("pen", "a tiny silver pen with cap.", true);
+  Item paper = new Item("paper", "a white sheet of paper with writing on it.", true);
+  Item fountain = new Item("fountain", "a large stone fountain, water trickling down its sides.", false);
+  Item flower = new Item("flower", "a colorful flower.", true);
 
   private Room currentRoom = one;
 
@@ -32,6 +33,7 @@ public class Map{
     one.addExit(3, blank);
     //items;
     one.addItem(coin);
+    one.addItem(flower);
 
     two.setName("Hallway");
     two.setShortDesc("You are in a dimly lit hallway.");
@@ -41,6 +43,7 @@ public class Map{
     two.addExit(2, blank);
     two.addExit(3, blank);
     //items
+    two.addItem(fountain);
 
     three.setName("Four-way room");
     three.setShortDesc("You are in a large room lit by torches.");
