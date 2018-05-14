@@ -64,6 +64,22 @@ public class Prompt{
             case "look":
             case "l":
                 //look
+                boolean lookFail = true;
+                for (int x = 0; x < inventory.inv.size(); x++){
+                    if (inventory.inv.get(x).getName().equals(tokenized[1])){
+                        System.out.println(inventory.getItem(x).getDesc());
+                        lookFail = false;
+                    }//if
+                }//check inventory
+                for (int x = 0; x < map.getCurrentRoom().items.size(); x++){
+                    if (map.getCurrentRoom().items.get(x).getName().equals(tokenized[1])){
+                        System.out.println(map.getCurrentRoom().items.get(x).getDesc());
+                        lookFail = false;
+                    }
+                }//check room
+                if (lookFail) {
+                    System.out.println("You don't see one of those here.");
+                }
 
                 break;
 
