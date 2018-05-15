@@ -4,11 +4,13 @@ public class Map{
 
   //create rooms here;
   Room blank = new Room();
+
   Room one = new Room();
   Room two = new Room();
   Room three = new Room();
   Room four = new Room();
   Room five = new Room();
+  Room six = new Room();
 
   //Room[] roomArray = {one, two, three};
   //ArrayList roomList = new ArrayList(roomArray); 
@@ -23,6 +25,7 @@ public class Map{
   Item flower2 = new Item("flower", "a colorful flower.", true);
   Item flower3 = new Item("flower", "a colorful flower.", true);
   Item egg = new Item("egg", "an incredible, edible, egg!", true);
+  Item key = new Item("key", "a small silver key.", true);
 
   private Room currentRoom = one;
 
@@ -54,7 +57,7 @@ public class Map{
     three.setShortDesc("You are in a large room lit by torches.");
     three.setLongDesc("You are in a large stone room, well illuminated by torchs.  Each of the four walls has a door.");
     three.addExit(0, two);
-    three.addExit(1, blank);
+    three.addExit(1, six);
     three.addExit(2, four);
     three.addExit(3, five);
     //items
@@ -81,6 +84,15 @@ public class Map{
     five.addItem(flower1);
     five.addItem(flower2);
     five.addItem(flower3);
+
+    six.setName("Secret Room");
+    six.setShortDesc("You have found the secret room!");
+    six.setLongDesc("This room was hidden behind the locked door, and contains many secret items!");
+    six.addExit(0, three);
+    six.addExit(1, blank);
+    six.addExit(2, blank);
+    six.addExit(3, blank);
+    //items;
 
   }//Map()
 
