@@ -27,38 +27,60 @@ public class Prompt{
             case "get":
             case "g":
                 //get
-                boolean getFail = true;
-                for (int x = 0; x < map.getCurrentRoom().items.size(); x++){
-                    if (map.getCurrentRoom().items.get(x).getName().equals(tokenized[1])){
+                //check for keyword All
+                if (tokenized[1].equals("all")){
+                    System.out.println("You grab everything that you are able.");
+                    for (int x = 0; x < map.getCurrentRoom().items.size(); x++){
                         if (map.getCurrentRoom().items.get(x).getObtainable()){
-                          System.out.println("You take the " + tokenized[1]);
-                          inventory.addItem(map.getCurrentRoom().items.get(x));
-                          map.getCurrentRoom().removeItem(x);
-                          getFail = false;
-                        } else {
-                            getFail = false;
-                            System.out.println("You can't seem to pick that up.");
+                            System.out.println("Got " + map.getCurrentRoom().items.get(x).getName());
+                            inventory.addItem(map.getCurrentRoom().items.get(x));
+                            map.getCurrentRoom().removeItem(x);
                         }
-                    }//if
-                }//for
-                if (getFail){
-                    System.out.println("You don't see one of those here.");
-                }
+                    }
+                } /* finished checking for keyword All */ 
+                    else {
+                    boolean getFail = true;
+                    for (int x = 0; x < map.getCurrentRoom().items.size(); x++){
+                        if (map.getCurrentRoom().items.get(x).getName().equals(tokenized[1])){
+                            if (map.getCurrentRoom().items.get(x).getObtainable()){
+                              System.out.println("You take the " + tokenized[1]);
+                              inventory.addItem(map.getCurrentRoom().items.get(x));
+                              map.getCurrentRoom().removeItem(x);
+                              getFail = false;
+                            } else {
+                                getFail = false;
+                                System.out.println("You can't seem to pick that up.");
+                            }
+                        }//if
+                    }//for
+                    if (getFail){
+                        System.out.println("You don't see one of those here.");
+                    }
+                    }//else (all)
                 break;
             case "drop":
             case "d":
                 //drop
-                boolean dropFail = true;
-                for (int x = 0; x < inventory.inv.size(); x++){
-                    if (inventory.inv.get(x).getName().equals(tokenized[1])){
-                        System.out.println("You drop the " + tokenized[1]);
+                //check for keyword All
+                if (tokenized[1].equals("all")){
+                    System.out.println("You dropped everything you are carrying.");
+                    for (int x = 0; x < inventory.inv.size(); x++){
                         map.getCurrentRoom().addItem(inventory.getItem(x));
                         inventory.removeItem(x);
-                        dropFail = false;
-                    }//if
-                }
-                if (dropFail){
-                    System.out.println("You don't have one of those.");
+                    }
+                } else {
+                    boolean dropFail = true;
+                    for (int x = 0; x < inventory.inv.size(); x++){
+                        if (inventory.inv.get(x).getName().equals(tokenized[1])){
+                            System.out.println("You drop the " + tokenized[1]);
+                            map.getCurrentRoom().addItem(inventory.getItem(x));
+                            inventory.removeItem(x);
+                            dropFail = false;
+                        }//if
+                    }
+                    if (dropFail){
+                        System.out.println("You don't have one of those.");
+                    }
                 }
                 break;
             case "look":
