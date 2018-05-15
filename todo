@@ -1,0 +1,11 @@
+Todo:
+
+thorough bugtesting!
+
+_ remove articles from tokenized input (or prevent them from being stored in the first place)
+
+_ Item interactions (key unlocks door, switch opens passageway)
+
+_ containers (chest contains items, open chest, unlock chest)
+
+- StoryTime!

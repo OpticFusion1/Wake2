@@ -19,6 +19,10 @@ public class Map{
   Item paper = new Item("paper", "a white sheet of paper with writing on it.", true);
   Item fountain = new Item("fountain", "a large stone fountain, water trickling down its sides.", false);
   Item flower = new Item("flower", "a colorful flower.", true);
+  Item flower1 = new Item("flower", "a colorful flower.", true);
+  Item flower2 = new Item("flower", "a colorful flower.", true);
+  Item flower3 = new Item("flower", "a colorful flower.", true);
+  Item egg = new Item("egg", "an incredible, edible, egg!", true);
 
   private Room currentRoom = one;
 
@@ -33,6 +37,7 @@ public class Map{
     one.addExit(3, blank);
     //items;
     one.addItem(coin);
+    one.addItem(egg);
     one.addItem(flower);
 
     two.setName("Hallway");
@@ -73,6 +78,9 @@ public class Map{
     five.addExit(2, three);
     five.addExit(3, blank);
     //items;
+    five.addItem(flower1);
+    five.addItem(flower2);
+    five.addItem(flower3);
 
   }//Map()
 

@@ -163,7 +163,7 @@ public class Prompt{
 
   public void listExits(){
 
-   System.out.print("There are exits to the ");
+   System.out.print("There are exits to the: ");
    // (0 = north, 1 = south, 2 = east, 3 = west)
    int x = 0;
    int y = map.getCurrentRoom().exits.size();
@@ -174,19 +174,19 @@ public class Prompt{
         continue;
       }
       switch (x) {
-        case 0: System.out.print("north");
+        case 0: System.out.print("[north]");
           y--;
           x++;
           break;
-        case 1: System.out.print("south");
+        case 1: System.out.print("[south]");
           y--;
           x++;
           break;
-        case 2: System.out.print("east");
+        case 2: System.out.print("[east]");
           y--;
           x++;
           break;
-        case 3: System.out.print("west");
+        case 3: System.out.print("[west]");
           y--;
           x++;
           break;
@@ -200,8 +200,30 @@ public class Prompt{
     } else {
       System.out.print("You can see ");
       int x = 0; 
+      int z = map.getCurrentRoom().items.size();
       for (int y = map.getCurrentRoom().items.size(); y > 0; y--){
-        System.out.print(map.getCurrentRoom().items.get(x).getName() + " ");
+        //a/an
+        char vowel = map.getCurrentRoom().items.get(x).getName().charAt(0);
+        if (vowel == 'a' || vowel == 'e' || vowel == 'i' || vowel == 'o' || vowel == 'u'){
+            System.out.print("an ");
+        } else {
+            System.out.print("a ");
+        }//a/an
+        System.out.print(map.getCurrentRoom().items.get(x).getName());
+        //check for comma
+        if (z > 1){
+            if (x < z && z > 2){
+                if (x == z - 2){
+                    System.out.print(", and");
+                
+                } else if (x != z - 1){
+                    System.out.print(",");
+                }
+            } else if (z == 2 && x < z - 1){
+                System.out.print(" and");
+            }
+        }
+        System.out.print(" ");
         x++;
       }//for y > 0;
     } System.out.println("here.");
